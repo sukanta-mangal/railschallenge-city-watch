@@ -11,3 +11,11 @@ group :development, :test do
   gem 'database_cleaner', '1.4.1'
   gem 'web-console', '~> 2.0'
 end
+group :development, :test do
+  gem "pry"
+  gem "pry-nav"
+  gem 'pry-rails'
+  gem 'pry-remote'
+  gem 'web-console', '~> 2.0'
+  gem 'spring'
+end
