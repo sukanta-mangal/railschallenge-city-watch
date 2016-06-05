@@ -1,4 +1,6 @@
 class Emergency < ActiveRecord::Base
+
+  serialize :responders, Array
 	validates :fire_severity, presence: true,
             numericality: {
                 :only_integer => true,

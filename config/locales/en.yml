@@ -26,9 +26,13 @@ en:
         emergency:
           attributes:
             fire_severity:
-              greater_than_or_equal_to: "must be greater than or equal to 0" # Applies only to post.age
+              greater_than_or_equal_to: "must be greater than or equal to 0"
               only_integer: "not a number"
-          #less_than_or_equal_to: "Post-specific error" # Applies to all other fields for a post
+        responder:
+          attributes:
+            capacity:
+              greater_than_or_equal_to: "is not included in the list"
+              less_than_or_equal_to: "is not included in the list"
       messages:
         greater_than_or_equal_to: "must be greater than or equal to 0" # Applies to all other models
         uniqueness: "has already been taken"
