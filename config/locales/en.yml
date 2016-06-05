@@ -20,4 +20,16 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    errors:
+      models:
+        emergency:
+          attributes:
+            fire_severity:
+              greater_than_or_equal_to: "must be greater than or equal to 0" # Applies only to post.age
+              only_integer: "not a number"
+          #less_than_or_equal_to: "Post-specific error" # Applies to all other fields for a post
+      messages:
+        greater_than_or_equal_to: "must be greater than or equal to 0" # Applies to all other models
+        uniqueness: "has already been taken"
+        presence: "can't be blank"

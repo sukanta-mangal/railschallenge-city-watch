@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source source="LOCAL" name="Rails railschallenge-city-watch: development" uuid="c62e416e-5e44-4ef3-b4d4-9d851bc1f8a8">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source source="LOCAL" name="Rails railschallenge-city-watch: test" uuid="fb37bda0-68cf-4bd4-9ce7-8d250ff21019">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+</component>

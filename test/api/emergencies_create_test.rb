@@ -4,7 +4,6 @@ class EmergenciesCreateTest < ActionDispatch::IntegrationTest
   test 'POST /emergencies/ simple creation' do
     post '/emergencies/', emergency: { code: 'E-99999999', fire_severity: 1, police_severity: 2, medical_severity: 3 }
     json_response = JSON.parse(response.body)
-
     assert_equal 201, response.status
     assert_equal nil, body['message']
     assert_equal 'E-99999999', json_response['emergency']['code']
@@ -46,7 +45,7 @@ class EmergenciesCreateTest < ActionDispatch::IntegrationTest
   end
 
   test 'POST /emergencies/ cannot set id' do
-    post '/emergencies', emergency: { id: 1, fire_severity: 1, police_severity: 2, medical_severity: 3 }
+    post '/emergencies', emergency: { id: 1, code: 'E-55555555', fire_severity: 1, police_severity: 2, medical_severity: 3 }
 
     assert_equal 422, response.status
     assert_equal({ 'message' => 'found unpermitted parameter: id' }, JSON.parse(body))
@@ -68,7 +67,6 @@ class EmergenciesCreateTest < ActionDispatch::IntegrationTest
 
   test 'POST /emergencies/ lack of fire_severity returns an error' do
     post '/emergencies', emergency: { code: 'E-55555555', police_severity: 2, medical_severity: 3 }
-
     assert_equal 422, response.status
     assert_equal({ 'message' => { 'fire_severity' => ['can\'t be blank', 'is not a number'] } }, JSON.parse(body))
   end
