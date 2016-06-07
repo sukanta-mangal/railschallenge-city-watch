@@ -6,4 +6,8 @@ class Responder < ActiveRecord::Base
                                                       message: "is not included in the list"}
   validates :name, uniqueness: true, presence: true
   validates :type, presence: true
+
+  scope :fire_type, -> {where(:type => 'Fire')}
+  scope :police_type, -> {where(:type => 'Police')}
+  scope :medical_type, -> {where(:type => 'Medical')}
 end
