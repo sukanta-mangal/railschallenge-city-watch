@@ -79,14 +79,12 @@ class RespondersController < ApplicationController
     cap_arr = []
     emergencies = Emergency.where("resolved_at is ? and #{type.downcase}_severity > ?",nil,0)
     filter_type = @responders.send("#{type.downcase}_type").order('capacity asc')
+    total_capacity = filter_type.sum(:capacity)
+    total_avail_to_respond = total_capacity
     unless emergencies.present?
-      total_capacity = filter_type.sum(:capacity)
-      total_avail_to_respond = total_capacity
       total_on_duty = filter_type.where(:on_duty => true).sum(:capacity)
       total_ready_to_respond = total_on_duty
     else
-      total_capacity = filter_type.sum(:capacity)
-      total_avail_to_respond = total_capacity
       assigned_responder = []
       total_responded_capacity = 0
       emergencies.each do |emergency|
